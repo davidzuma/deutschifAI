@@ -39,4 +39,4 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 **Contact**
-For any questions or feedback, feel free to reach out to **Your Name**
+For any questions or feedback, feel free to reach out to [zumaquerodavid@gmail.com](zumaquerodavid@gmail.com)
