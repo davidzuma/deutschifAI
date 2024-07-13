@@ -45,6 +45,8 @@ df = pd.read_sql("SELECT * FROM names_definitions", conn)
 conn.close()
 
 
-df.index = df["Wort"]
-st.table(df["Beschreibung"])
-st.info("No data available in the database.")
+if not df.empty:
+    df.index = df["Wort"]
+    st.table(df["Beschreibung"])
+else:
+    st.info("No data available in the database.")
