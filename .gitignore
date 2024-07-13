@@ -1,0 +1,38 @@
+.streamlit/secrets.toml
+.env
+# Ignore virtual environments
+venv/
+
+# Ignore Python caches and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pth
+
+# Ignore IDE and text editor files
+*.impyla
+*.ipynb
+
+# Ignore generated files (e.g. build artifacts)
+build/
+dist/
+*.egg-info/
+
+# Ignore logs and other output files
+logs/
+*.log
+*.txt
+*.csv
+
+# Ignore Sphinx documentation builds
+doc/_build/
+docs/_build/
+.DS_Store
+src/.DS_Store
+
+# Ignore other project-specific files
+*.aux
+*.bak
+*.swp
+
+*.suo
