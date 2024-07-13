@@ -21,7 +21,6 @@ dist/
 # Ignore logs and other output files
 logs/
 *.log
-*.txt
 *.csv
 
 # Ignore Sphinx documentation builds

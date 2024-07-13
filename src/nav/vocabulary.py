@@ -42,11 +42,9 @@ st.subheader("Aktueller Wortschatz")
 conn = sqlite3.connect("vocabulary.db")
 cursor = conn.cursor()
 df = pd.read_sql("SELECT * FROM names_definitions", conn)
-# cursor.execute('SELECT * FROM names_definitions')
-# data = cursor.fetchall()
 conn.close()
 
-if df:
-    df.index = df["Wort"]
-    st.table(df["Beschreibung"])
-    st.info("No data available in the database.")
+
+df.index = df["Wort"]
+st.table(df["Beschreibung"])
+st.info("No data available in the database.")
