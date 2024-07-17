@@ -11,6 +11,7 @@ langchain-openai = "^0.1.13"
 openai = "^1.35.7"
 python-dotenv = "^1.0.1"
 pandas = "^2.2.2"
+sqlitecloud = "^0.0.78"
 
 
 [build-system]
