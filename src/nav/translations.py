@@ -20,7 +20,7 @@ def english_translation_game():
 
     if st.button("Check"):
         if user_translation.lower().strip() == english_translation.lower().strip():
-            st.success("Gut!")
+            st.success("✅ Richtig! Gut gemacht")
             st.session_state.user_translation = ""
         else:
             st.error(f"Nicht gut: {english_translation}")

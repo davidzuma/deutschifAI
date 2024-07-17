@@ -1,11 +1,9 @@
 import os
-import sqlite3
 
-import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-from utils.database import insert_data
+from utils.database import get_names_and_definitions_df, insert_data
 from utils.generation import generate_description_and_examples
 
 # Load environment variables from .env file
@@ -39,14 +37,10 @@ if st.button("Einfügen"):
         st.warning("Ungültig")
 
 st.subheader("Aktueller Wortschatz")
-conn = sqlite3.connect("vocabulary.db")
-cursor = conn.cursor()
-df = pd.read_sql("SELECT * FROM names_definitions", conn)
-conn.close()
+names_and_definitions_df = get_names_and_definitions_df()
 
-
-if not df.empty:
-    df.index = df["Wort"]
-    st.table(df["Beschreibung"])
+if not names_and_definitions_df.empty:
+    names_and_definitions_df.index = names_and_definitions_df["Wort"]
+    st.table(names_and_definitions_df["Beschreibung"])
 else:
     st.info("No data available in the database.")
