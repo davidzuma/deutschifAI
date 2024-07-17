@@ -8,9 +8,7 @@ from nav.translations import english_translation_game
 from utils.constans import DATA_PATH
 
 LOGO = os.path.join(DATA_PATH, "images", "logo.png")
-st.set_page_config(
-    page_title="DeutschifAI", page_icon=":material/airline_seat_flat_angled:"
-)
+st.set_page_config(page_title="DeutschifAI", page_icon="🇩🇪")
 st.logo(LOGO, icon_image=LOGO)
 
 if "logged_in" not in st.session_state:
