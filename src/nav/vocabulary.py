@@ -19,9 +19,11 @@ st.title("Wortschatz 📖")
 # Generate button
 name = st.text_input("Neu Wort")
 
+
 if st.button("Einfügen"):
     if name:
         generated_text = generate_description_and_examples(name)
+        # TODO: Move to utils
         try:
             wort = generated_text.split("Wort:")[1].split("Beschreibung:")[0]
             beschreibung = generated_text.split("Beschreibung:")[1].split("Beispiel:")[
@@ -35,6 +37,13 @@ if st.button("Einfügen"):
             st.warning("Daten nicht erfolgreich eingefügt.")
     else:
         st.warning("Ungültig")
+    st.markdown(f"**Beschreibung**: {beschreibung}")
+    st.markdown(f"**Beispiel**: {beispiele}")
+    st.markdown(f"**Ins Englische**: {englische}")
+
+# TODO: Future feature
+#    if st.button("Die Aussprache 🔊"):
+#       st.write("Audio playback not implemented")
 
 st.subheader("Aktueller Wortschatz")
 names_and_definitions_df = get_names_and_definitions_df()
