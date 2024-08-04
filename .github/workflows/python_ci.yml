@@ -46,6 +46,3 @@ jobs:
     - name: Run tests
       run: |
         poetry run pytest
-
-    - name: Export requirements
-      run: poetry export -f requirements.txt --output requirements.txt
