@@ -41,7 +41,7 @@ if st.button("Einfügen"):
     # Convert text to speech when button is clicked
 
     if st.session_state.wort:
-        st.write("Die Aussprache 🔊")
+        st.markdown("**Die Aussprache** 🔊:")
         audio_file = text_to_speech(st.session_state.wort)
         st.audio(audio_file, format="audio/mp3")
 
