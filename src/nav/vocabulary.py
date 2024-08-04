@@ -1,17 +1,8 @@
-import os
-
 import streamlit as st
-from dotenv import load_dotenv
+from gtts import gTTS
 
 from utils.database import get_names_and_definitions_df, insert_data
 from utils.generation import generate_description_and_examples
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Read the OPENAI_API_KEY from the environment
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
 
 # Streamlit app
 st.title("Wortschatz 📖")
@@ -26,6 +17,7 @@ if st.button("Einfügen"):
         # TODO: Move to utils
         try:
             wort = generated_text.split("Wort:")[1].split("Beschreibung:")[0]
+            st.session_state.wort = wort
             beschreibung = generated_text.split("Beschreibung:")[1].split("Beispiel:")[
                 0
             ]
@@ -41,9 +33,17 @@ if st.button("Einfügen"):
     st.markdown(f"**Beispiel**: {beispiele}")
     st.markdown(f"**Ins Englische**: {englische}")
 
-# TODO: Future feature
-#    if st.button("Die Aussprache 🔊"):
-#       st.write("Audio playback not implemented")
+    def text_to_speech(text, lang="de"):
+        tts = gTTS(text=text, lang=lang)
+        tts.save("german_speech.mp3")
+        return "german_speech.mp3"
+
+    # Convert text to speech when button is clicked
+
+    if st.session_state.wort:
+        st.write("Die Aussprache 🔊")
+        audio_file = text_to_speech(st.session_state.wort)
+        st.audio(audio_file, format="audio/mp3")
 
 st.subheader("Aktueller Wortschatz")
 names_and_definitions_df = get_names_and_definitions_df()
